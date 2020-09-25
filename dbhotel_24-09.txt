@@ -1,3 +1,6 @@
+ESERCIZI 24-09
+
+
 1.  Seleziona tutti gli ospiti che sono stati identificati con
     la carta di identità.
 
