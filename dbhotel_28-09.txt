@@ -19,7 +19,9 @@ WHERE `prenotazioni`.`id` IS NULL;
 
 3. Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
 
-SELECT COUNT(`id`), `ospite_id`
-FROM `prenotazioni_has_ospiti`
+SELECT COUNT(`prenotazioni_has_ospiti`.`id`) AS "Numero prenotazioni", `ospiti`.`name` AS "Nome", `ospiti`.`lastname` AS "Cognome"
+FROM `prenotazioni_has_ospiti` 
+INNER JOIN `ospiti`
+ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id`
 GROUP BY `ospite_id`
-HAVING count(`id`) >= 2;
+HAVING count(`prenotazioni_has_ospiti`.`id`) >= 2;
